@@ -19,5 +19,5 @@ btn.addEventListener('click',(e)=>{
         console.log(response);
         alert("Sign Up Done")
     })
-    .catch(err=>console.log(err))
+    .catch(err=>alert("user Already Exist Please Login"))
 })

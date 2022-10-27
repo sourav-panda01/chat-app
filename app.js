@@ -19,7 +19,7 @@ app.use(userRoutes)
 app.use(errorController.get404);
 
 sequelize
-   //.sync({ force: true })
+  //  .sync({ force: true })
   .sync()
   .then(result => {
     app.listen(3000)
