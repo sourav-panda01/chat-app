@@ -14,8 +14,9 @@ btn.addEventListener('click',(e)=>{
     };
     axios.post("http://localhost:3000/signin",userdetails)
     .then(response=>{
-        console.log(response)
+        console.log(response.data,"List of online users")
         localStorage.setItem('token',response.data.token)
+        
         window.location.href="http://127.0.0.1:5500/project/chat-app/views/chatwindow.html"
     })
     .catch(err=>{

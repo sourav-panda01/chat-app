@@ -3,7 +3,7 @@ const User = require('../models/user')
 
 exports.authenticator = (req,res,next)=> {
 try{
-    console.log(req,"this is requr=est")
+    console.log(req,"this is request Authorization")
     console.log(req.header,"This is inside heasder checking authenticator")
     const token = req.header('Authorization')
     console.log(token,"token in header authorization")
