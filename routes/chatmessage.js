@@ -11,6 +11,6 @@ router.get('/getmessage',authenticator.authenticator, chatmessageController.getc
 
 router.post('/postmessage',authenticator.authenticator,chatmessageController.postchat);
 
-router.get('/logout',chatmessageController.logout);
+// router.get('/logout',authenticator.authenticator,chatmessageController.logout);
 
 module.exports = router;

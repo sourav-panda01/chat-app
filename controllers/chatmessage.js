@@ -1,6 +1,7 @@
 const Chatmessage = require("../models/chatmessage");
 const User = require("../models/user")
-var onlineusers=[]
+// var onlineusers=[]
+// var name=[]
 
 exports.postchat = (req, res, next) => {
   const { message } = req.body;
@@ -21,14 +22,17 @@ exports.postchat = (req, res, next) => {
 exports.getchat = async(req, res, next) => {
   //{where:{userId:req.user.id}}
   try{
-    onlineusers.push(req.user.id)
-    console.log("Online users",onlineusers)
+    // onlineusers.push(req.user.id)
+    // console.log("Online users",onlineusers)
+    // for(let i=0;i<onlineusers.length;i++){
+    //   name[i]=(await User.findAll({where:{id:onlineusers[i]}}))[0].name
+    // }
     var data=[]
     console.log("Inside try of getchat")
     let chatresponse=await Chatmessage.findAll()
     //console.log(chatresponse,"This is chat response")
     for(let i=0;i<chatresponse.length;i++){
-      console.log("---",chatresponse[i].userId)
+      // console.log("---",chatresponse[i].userId)
       let userresponse= await User.findAll({where:{id:chatresponse[i].userId}})
       //console.log(userresponse.length,"User response length")
       //console.log(userresponse[0].name,"name")
@@ -47,10 +51,11 @@ exports.getchat = async(req, res, next) => {
 
 
 
-exports.logout = async(req, res, next) => {
-  console.log("inside logout controller")
-  var userindex=onlineusers.indexOf(req.user.id)
-  onlineusers.splice(userindex,1)
-  console.log(onlineusers,"Current online user length")
-  res.status(201).json({message:"logout done"})
-}
+// exports.logout = async(req, res, next) => {
+//   console.log("inside logout controller")
+//   console.log(req.user)
+//   var userindex=onlineusers.indexOf(req.user.id)
+//   onlineusers.splice(userindex,1)
+//   console.log(onlineusers,"Current online user length")
+//   res.status(201).json({message:"logout done"})
+// }
